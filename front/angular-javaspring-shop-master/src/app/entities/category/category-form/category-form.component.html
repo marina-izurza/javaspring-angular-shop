@@ -1,0 +1,26 @@
+<h1>Ficha de categorías</h1>
+{{ mode }} // {{ categoryId }}
+
+<form #categoryForm="ngForm" name="categoryForm" role="form" novalidate autocomplete="off">
+
+    <!--Category Id-->
+    <div class="form-group">
+        <label for="categoryId">Id</label>
+        <input class="form-control" type="number" id="categoryName" name="categoryName">
+    </div>
+
+    <!--Category Name-->
+    <div class="form-group">
+        <label for="categoryName">Nombre de categoría</label>
+        <input class="form-control" type="text" id="categoryName" name="categoryName">
+    </div>
+
+    <!--Image-->
+    <div class="form-group">
+        <label for="image">Imagen</label>
+        <input type="file" class="form-control" id="image">
+    </div>
+
+    <div class="buttonsForm">
+        <button class="btn btn-primary mt-3">Guardar</button>
+    </div>

@@ -1,0 +1,25 @@
+.navbar {
+    background-color: black;
+    height: 80px;
+
+    .navbar-nav li.active > a {
+        text-decoration: underline;
+    }
+
+    a {
+        color: whitesmoke;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .inter {
+        display: flex;
+        margin-left: 60%;
+
+        .fa-solid {
+            color: whitesmoke;
+            cursor: pointer;
+            font-size: 20px;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+.header {
+    display: flex;
+}
+
+#filtros {
+    margin: 30px auto 90px auto;
+
+    .row {
+        display: flex;
+        justify-content: flex-start;
+
+        .form-group {
+            width: 20%;
+
+            label {
+                font-size: 20px;
+            }
+        }
+
+        #btnSearch {
+            padding: 0;
+            width: 5%;
+        }
+    }
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    margin: 50px;
+    width: 95%;
+
+    thead {
+        font-size: 30px;
+    }
+
+    tbody {
+
+        .id {
+            font-style: italic;
+            font-weight: lighter;
+            color: gray;
+        }
+
+        .imgItem {
+            width: 100px;
+        }
+
+        td {
+            font-size: 20px;
+
+            button{
+                margin: auto 5px;
+                width: 100px;
+            }
+        }
+    }
+}
+
+.botoneraPaginacion {
+    display: flex;
+    justify-content: center;
+
+    span {
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    button {
+        margin: auto 30px;
+    }
+}

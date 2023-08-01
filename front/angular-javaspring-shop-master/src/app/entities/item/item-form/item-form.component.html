@@ -1,0 +1,69 @@
+<h1>Ficha de artículo</h1>
+{{ mode }} // {{ itemId }}
+
+<form *ngIf="item" #itemForm="ngForm" name="itemForm" role="form" novalidate autocomplete="off">
+
+    <!--Id: solo visible si estamos en edición pero no será editable-->
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input disabled type="number" [(ngModel)]="item.id" name="id" class="form-control" id="id" #price="ngModel">
+    </div>
+
+    <!--Category Id-->
+    <div class="form-group">
+        <label for="categoryId">Categoría</label>
+        <p-autoComplete [(ngModel)]="selectedCategory" name="selectedCategory" [suggestions]="categories" 
+        (completeMethod)="getAllCategories($event)" field="name" (onSelect)="categorySelected();" (onClear)="categoryUnselected();" [required]="true" [forceSelection]="true"></p-autoComplete>
+    </div>
+
+    <!--Name-->
+    <div class="form-group">
+        <label for="name">Nombre</label>
+        <input type="text" [(ngModel)]="item.name" class="form-control" name="name" id="name" #name="ngModel" required
+            minlength="3" maxlength="100">
+    </div>
+    <!--Validarion name-->
+    <div *ngIf="(name.dirty && name.errors)">
+        <small class="form-text text-danger" *ngIf="name.errors['required']">
+            Este campo es requerido
+        </small>
+        <small class="form-text text-danger" *ngIf="name.errors['minlength']">
+            Este campo tiene que tener una longitud mínima de 3 caracteres
+        </small>
+    </div>
+
+    <!--Description-->
+    <div class="form-group">
+        <label for="description">Descripción</label>
+        <input type="text" [(ngModel)]="item.description" class="form-control" name="description" id="description"
+            #description="ngModel" maxlength="2000">
+    </div>
+
+    <!--Price-->
+    <div class="form-group">
+        <label for="precio">Precio</label>
+        <input type="number" [(ngModel)]="item.price" class="form-control" name="price" id="precio" #precio="ngModel"
+            required min="1">
+    </div>
+    <!--Validarion price-->
+    <div *ngIf="(precio.dirty && precio.errors)">
+        <small class="form-text text-danger" *ngIf="precio.errors['required']">
+            Este campo es requerido
+        </small>
+        <small class="form-text text-danger" *ngIf="precio.errors['min']">
+            El valor debe ser positivo
+        </small>
+    </div>
+
+    <!--Image-->
+    <div class="form-group">
+        <label for="image">Imagen</label>
+        <input type="file" class="form-control" id="image" (change)="includeImageInItem($event)">
+        <img class="my-2" *ngIf="item.image" [src]="'data:image/webp;base64,' + item.image" width="200px">
+    </div>
+
+    <div class="buttonsForm">
+        <button class="btn btn-primary mt-3" (click)="saveItem()" [disabled]="itemForm.invalid">Guardar</button>
+    </div>
+
+</form>
